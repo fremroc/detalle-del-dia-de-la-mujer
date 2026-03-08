@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi Prima</title>
+</head>
+<body style="background:#f3e5f5; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow:hidden;">
+    <style>
+        .escena { perspective: 1000px; width: 300px; height: 200px; position: relative; }
+        
+        .sobre { 
+            width: 100%; height: 100%; background: #ce93d8; border-radius: 10px; 
+            position: relative; transition: opacity 0.5s ease 1.5s; z-index: 2; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .tapa { 
+            position: absolute; top: 0; left: 0; width: 0; height: 0; 
+            border-left: 150px solid transparent; border-right: 150px solid transparent; 
+            border-top: 100px solid #8e24aa; transform-origin: top; 
+            transition: transform 0.6s ease; z-index: 3; 
+        }
+        
+        .carta { 
+            position: absolute; top: 10px; left: 10px; width: 280px; background: white; 
+            padding: 30px; border-radius: 15px; text-align: center; 
+            transform: scale(0.9); opacity: 0; z-index: 1; 
+            transition: transform 1s ease-out 0.6s, opacity 0.5s ease-out 0.6s; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Animación */
+        .animar .tapa { transform: rotateX(180deg); }
+        .animar .carta { 
+            opacity: 1; 
+            transform: translateY(-120px) scale(1.3); 
+            z-index: 10; 
+            width: 340px; 
+            left: -30px; 
+        }
+        .animar .sobre { opacity: 0; pointer-events: none; }
+    </style>
+
+    <div class="escena" id="contenedorPrima">
+        <div class="sobre">
+            <div class="tapa"></div>
+        </div>
+        <div class="carta">
+            <h2 style="color:#8e24aa; font-size:1.1em; margin-bottom:15px; border-bottom: 2px solid #f3e5f5; padding-bottom: 10px;">
+                ¡FELIZ DÍA DE LA MUJER!
+            </h2>
+            <p style="color:#4a148c; font-size:1em; line-height:1.6; font-weight: 500;">
+                "Prima, eres una mujer increíble con una fuerza única. Nunca dejes de perseguir tus sueños y de brillar con esa luz propia que te caracteriza."
+            </p>
+            <div style="font-size:35px; margin-top:15px;">🦋✨💜</div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => { 
+            document.getElementById('contenedorPrima').classList.add('animar'); 
+        }, 1000);
+    </script>
+</body>
+</html>

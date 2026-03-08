@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz Día - De parte de Okarun</title>
+</head>
+<body style="background:#050505; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; font-family:monospace; overflow:hidden;">
+    <style>
+        .escena { perspective: 1000px; width: 300px; height: 200px; position: relative; }
+        
+        .sobre { 
+            width: 100%; height: 100%; background: #000; border: 2px solid #00ff00; 
+            transition: opacity 0.5s ease 1.5s; z-index: 2; 
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+        }
+        
+        .tapa { 
+            position: absolute; top: 0; width: 0; height: 0; 
+            border-left: 150px solid transparent; border-right: 150px solid transparent; 
+            border-top: 100px solid #00ff00; transform-origin: top; 
+            transition: 0.6s ease; z-index: 3; 
+        }
+        
+        .carta { 
+            position: absolute; top: 10px; left: 10px; width: 280px; background: white; 
+            border: 2px solid #000; opacity: 0; transition: transform 1s ease-out 0.6s, opacity 0.5s ease-out 0.6s; 
+            text-align: center; padding: 20px; box-sizing: border-box; 
+        }
+
+        /* Texto inferior derecho */
+        .firma-okarun {
+            position: absolute;
+            bottom: -60px;
+            right: -20px;
+            color: #00ff00;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 1s ease 1.5s;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+        }
+
+        /* Animaciones */
+        .animar .tapa { transform: rotateX(180deg); }
+        .animar .carta { 
+            opacity: 1; 
+            transform: translateY(-130px) scale(1.3); 
+            z-index: 10; 
+            box-shadow: 10px 10px 0 #00ff00; 
+        }
+        .animar .sobre { opacity: 0; pointer-events: none; }
+        .animar .firma-okarun { opacity: 1; }
+    </style>
+
+    <div class="escena" id="contenedorPrincipal">
+        <div class="sobre">
+            <div class="tapa"></div>
+        </div>
+        
+        <div class="carta">
+            <h2 style="font-family: Impact, sans-serif; font-size:1.1em; margin:0 0 10px 0; color:#000;">¡FELIZ DÍA DE LA MUJER!</h2>
+            <p style="font-family:Arial, sans-serif; font-size:0.9em; margin:0; color:#333; font-weight: bold; line-height: 1.4;">
+                "Sigue con esa buena energía. ¡Pásala genial hoy!"
+            </p>
+            <div style="font-size: 25px; margin-top: 15px;">👽👻✨</div>
+        </div>
+
+        <div class="firma-okarun">Te lo envía Okarun</div>
+    </div>
+
+    <script>
+        setTimeout(() => { 
+            document.getElementById('contenedorPrincipal').classList.add('animar'); 
+        }, 1000);
+    </script>
+</body>
+</html>

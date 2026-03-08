@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Para Laiguela</title></head>
+<body style="background:#050510; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; font-family:sans-serif; overflow:hidden;">
+    <style>
+        .star { position: absolute; background: white; border-radius: 50%; animation: shoot 4s infinite linear; opacity: 0; }
+        @keyframes shoot { 0% { transform: translate(-10vw, -10vh) rotate(45deg) scale(0); opacity: 1; } 100% { transform: translate(110vw, 110vh) rotate(45deg) scale(1); opacity: 0; } }
+        .escena { perspective: 1000px; width: 300px; height: 200px; position: relative; }
+        .sobre { width: 100%; height: 100%; background: #c0c0c0; border-radius: 0 0 10px 10px; transition: opacity 0.5s ease 1.5s; z-index: 2; }
+        .tapa { position: absolute; top: 0; width: 0; height: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-top: 100px solid #a0a0a0; transform-origin: top; transition: 0.6s; z-index: 3; }
+        .carta { position: absolute; top: 10px; left: 10px; width: 280px; background: white; padding: 30px; border-radius: 10px; text-align: center; opacity: 0; transition: 1s ease 0.6s; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .animar .tapa { transform: rotateX(180deg); }
+        .animar .carta { opacity: 1; transform: translateY(-110px) scale(1.3); z-index: 10; width: 340px; left: -30px; }
+        .animar .sobre { opacity: 0; }
+    </style>
+    <div class="star" style="top:10%; left:20%; width:2px; height:150px; animation-delay:0s;"></div>
+    <div class="star" style="top:30%; left:60%; width:1px; height:100px; animation-delay:2s;"></div>
+    <div class="escena" id="L"><div class="sobre"><div class="tapa"></div></div><div class="carta">
+        <h2 style="color:#1a1a2e; font-size:1.1em; border-bottom:1px solid #eee; padding-bottom:10px;">¡FELIZ DÍA DE LA MUJER!</h2>
+        <p style="color:#444; font-style:italic;">"Laiguela, gracias por ser el pilar de nuestra familia. Eres nuestro mayor ejemplo de fortaleza."</p>
+        <div style="font-size:30px;">✨👵❤️</div>
+    </div></div>
+    <script>setTimeout(()=>document.getElementById('L').classList.add('animar'),1000);</script>
+</body>
+</html>

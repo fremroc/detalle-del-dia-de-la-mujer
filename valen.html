@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Amiga 1 - Misma Vibra</title>
+</head>
+<body style="background:#0a0a0a; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; font-family:monospace; overflow:hidden;">
+    <style>
+        .escena { perspective: 1000px; width: 300px; height: 200px; position: relative; }
+        
+        .sobre { 
+            width: 100%; height: 100%; background: #333; border: 1px solid #4fc1ff; 
+            transition: opacity 0.5s ease 1.5s; z-index: 2; 
+            box-shadow: 0 0 15px rgba(79, 193, 255, 0.3);
+        }
+        
+        .tapa { 
+            position: absolute; top: 0; width: 0; height: 0; 
+            border-left: 150px solid transparent; border-right: 150px solid transparent; 
+            border-top: 100px solid #111; transform-origin: top; 
+            transition: 0.6s ease; z-index: 3; 
+        }
+        
+        .carta { 
+            position: absolute; top: 10px; left: 10px; width: 280px; background: #000; 
+            color: #4fc1ff; padding: 25px; border: 1px solid #4fc1ff; 
+            opacity: 0; transition: transform 1s ease-out 0.6s, opacity 0.5s ease-out 0.6s; 
+            text-align: center; box-shadow: 0 0 25px rgba(79, 193, 255, 0.2);
+        }
+
+        .animar .tapa { transform: rotateX(180deg); }
+        .animar .carta { 
+            opacity: 1; 
+            transform: translateY(-120px) scale(1.3); 
+            z-index: 10; 
+            width: 340px; 
+            left: -30px; 
+        }
+        .animar .sobre { opacity: 0; pointer-events: none; }
+    </style>
+
+    <div class="escena" id="contenedorAmiga1">
+        <div class="sobre">
+            <div class="tapa"></div>
+        </div>
+        <div class="carta">
+            <p style="font-size:1.1em; margin-bottom:15px; letter-spacing: 2px;">&lt;FELIZ_DIA_DE_LA_MUJER /&gt;</p>
+            <p style="color:white; font-size:0.95em; line-height:1.6; border-left: 3px solid #4fc1ff; padding-left: 10px; text-align: left;">
+                "Gracias por tener mi misma vibra y por estar siempre ahí. Es genial compartir esta energía contigo. ¡Sigue brillando!"
+            </p>
+            <p style="margin-top:15px; font-size: 1.2em;">⚡🎮🌹</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => { 
+            document.getElementById('contenedorAmiga1').classList.add('animar'); 
+        }, 1000);
+    </script>
+</body>
+</html>
